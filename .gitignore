@@ -1,3 +1,7 @@
+#add practice file to git ignore
+practice.ipynb 
+
+
 #ignore mac trash
 ds.store
 
