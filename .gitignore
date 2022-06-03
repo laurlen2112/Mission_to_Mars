@@ -1,9 +1,8 @@
 #add practice file to git ignore
 practice.ipynb 
 
-
-#ignore mac trash
-ds.store
+#Mac trash file
+.ds_store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
