@@ -2,26 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Makeup is fun!</title>
-</head>Pat McGrath Makeup Review:</head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mission to Mars</title>
+    <!--stackover flow question to avoid fav icon questions/1321878-->
+    <link
+        rel= "stylesheet"
+        href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  />
+   <!--add a font for the page in style-->
+<style>
+    body {background-color: lightcyan;}    
+   
+</style>
+<header style="height: 110px; width: 100%">  
+</html> 
 <body>
+<div class="container">
 
-<div> </div>
-<h1>Pat McGrath Makeup Review:</h1>
-    <p> one of my favorite pallets is the Pat McGrath Divine Rose 1 pallet.
-         that pallet is amazaing because it contains wearable shades and a reformulated
-         version of one her earlier highlighters.
+    <div style = "background-color:rgb(80, 183, 145);"
+    <div class="jumbotron text-center"> 
+      <h1 style= "color: salmon;" 
+          style = "text-shadow: rgb(16, 4, 6) ;">Mission to Mars</h1>
+       <p><a class="btn btn-primary btn-lg" href="/scrape"
+                style = "background-color: lightsalmon;"
+                 role="button">Scrape New Data</a></p>
+  </div>
+         <!-- Add section for Mars News -->
+      <div class="row" id="mars-news">
+        <div class="col-md-12">
+          <div class="media">
+            <div class="media-body">
+              <h2>Latest Mars News</h2>
+              <h4 class="media-heading" style = "color:darksalmon" >{{ mars.news_title }} </h4>
+              <p>{{ mars.news_paragraph }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        now that I have been wearing powder foundations I am loving her dual ended highlighting sticks
-        the highlighters are subtle and the balm side can be used for multipupose.
-    <p>
-    <ul> </ul>
+      <!-- Section for Featured Image and Facts table -->
+      <div class="row" id = "mars-featured-image">
+        <div class="col-md-8">
+          <h2>Featured Mars Image</h2>
+          <img
+            src="{{mars.featured_image }}"
+            class="img-responsive"
+            alt="Responsive image"
+          />
+        </div>
+        <div class ="col-md-4">
+          <!--try to figure out table padding  w3 schools-->
+          <table style = "width: 200px; padding: 15px;">    
+          <div class="row" id= "mars-facts">
+            <h3> Mars Facts </h3>
+            {{ mars.facts | safe }}</div>
 
-        <li> divine rose 1</li>
-        <li> huetopian dream</li>
-        <li> subliminal mothership</li>
-    </ul>
-</body>
+         <!-- for mars hemisphere -->
+         <!--ref: stack/questions/25373154-->
+      <div class="row" id = "mars_hemisphere">
+        <div class = "col-md-6">
+          <div class ="content">       
+            <h2 class = "text-center">Mars Hemisphere</h2>
+          
+            {% for hemisphere in mars.mars_hemisphere %}
+            <div class ="col-md-6">
+              <img src = "{{hemisphere.img_url | default('static/images/error.png', true)}}" 
+                        alt="Responsive image" class="img-responsive"}} width="200" height="200" >
+                <div class = "caption"><h6>{{hemisphere.title}} </h6>     
+              </div>
+            </div>
+            {% endfor %}
+         
+
+
+
+    
+<!-- need to do imge size-->
+
+
+    </div>
+  </div>
+  <footer style = "padding-top: 70px;">
+  </footer>
+  </body>
+</html>
 </html>
